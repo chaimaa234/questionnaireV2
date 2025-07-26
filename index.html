@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Questionnaire Orientation Filière</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; }
+    .container { max-width: 650px; margin: 40px auto; background: #fff; padding: 32px 28px 28px 28px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07);}
+    h1 { color: #34495e; margin-bottom: 12px; }
+    h2 { color: #2d7e47; margin-top: 36px;}
+    .question { margin-bottom: 22px; }
+    label { font-weight: 600; color: #222; }
+    select, button { margin-top: 7px; padding: 10px; font-size: 1em; border-radius: 6px; border: 1px solid #ccc;}
+    select { width: 100%; max-width: 350px;}
+    button { background: #27ae60; color: #fff; border: none; width: 100%; max-width: 350px; margin-top: 18px; font-weight: bold;}
+    button:hover { background: #219150;}
+    .result { background: #eafaf1; padding: 18px; border-radius: 8px; margin-top: 40px; font-size: 1.08em; }
+    .footer { margin-top: 40px; text-align: center; color: #888; font-size: 0.93em;}
+    @media (max-width: 700px) {
+      .container { padding: 18px; }
+      h1 { font-size: 1.55em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧭 Questionnaire d'Orientation Filière</h1>
+    <p>Réponds à 4 questions simples pour découvrir la filière la plus adaptée à ton profil&nbsp;!</p>
+    <form id="quizForm">
+      <div class="question">
+        <label for="q1">1. Préfères-tu travailler avec :</label><br>
+        <select id="q1" required>
+          <option value="">-- Choisir --</option>
+          <option value="data">Les données et l’IA</option>
+          <option value="dev">Développement logiciel/applications</option>
+          <option value="industry">Électronique ou industrie</option>
+          <option value="gestion">Gestion, finance ou organisation</option>
+          <option value="iot">Systèmes embarqués/IoT</option>
+          <option value="science">Autre domaine scientifique</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q2">2. Ton niveau en programmation :</label><br>
+        <select id="q2" required>
+          <option value="">-- Choisir --</option>
+          <option value="beginner">Débutant</option>
+          <option value="intermediate">Intermédiaire</option>
+          <option value="advanced">Avancé</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q3">3. Préfères-tu :</label><br>
+        <select id="q3" required>
+          <option value="">-- Choisir --</option>
+          <option value="team">Travailler en équipe/projets collaboratifs</option>
+          <option value="solo">Travailler de façon autonome</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q4">4. Le secteur qui t’attire le plus :</label><br>
+        <select id="q4" required>
+          <option value="">-- Choisir --</option>
+          <option value="it">Informatique et technologies</option>
+          <option value="industry">Industrie/production</option>
+          <option value="science">Sciences appliquées</option>
+          <option value="gestion">Gestion/organisation</option>
+        </select>
+      </div>
+      <button type="button" onclick="showResult()">Voir ma filière idéale</button>
+    </form>
+    <div id="result" class="result" style="display:none;"></div>
+    <div class="footer">Réalisé avec ❤️ pour l’orientation étudiante – <b>Chaimaa</b></div>
+  </div>
+  <script>
+    const filieres = {
+      data: ["2IA", "GD", "BI&A", "Data science"],
+      dev: ["GL", "Computer science", "Data and software engineer"],
+      industry: ["Génie électrique", "CSCMC", "Génie mécanique", "Génie industriel", "Génie des procédés industriels"],
+      gestion: ["AMOA", "IDF", "ASEDES", "Transportation and logistic engineering"],
+      iot: ["SMART", "CLOUD", "Génie réseau et télécommunications"],
+      science: ["Génie civil", "Geomatics and information systems", "Materials science and engineering", "Meteorology", "Hydraulic and water resources", "Génie minérale", "Modélisation informatique (MIS)", "Ingénierie topographique", "Ingénieur généraliste"],
+      beginner: ["AMOA", "IDF", "ASEDES", "Génie civil", "Génie minérale", "Ingénieur généraliste"],
+      intermediate: ["GD", "BI&A", "Génie industriel", "SMART", "Modélisation informatique (MIS)"],
+      advanced: ["2IA", "GL", "Computer science", "Data science", "Data and software engineer", "CLOUD", "CSCMC", "Génie électrique"],
+      team: ["GL", "SMART", "CLOUD", "AMOA", "Génie industriel", "Data and software engineer"],
+      solo: ["2IA", "GD", "BI&A", "Modélisation informatique (MIS)", "Génie civil", "Meteorology"],
+      it: ["2IA", "GD", "GL", "SMART", "Computer science", "CLOUD", "Data science", "Data and software engineer"],
+      industry: ["Génie mécanique", "Génie industriel", "Génie électrique", "CSCMC", "Génie des procédés industriels"],
+      science: ["Materials science and engineering", "Meteorology", "Hydraulic and water resources", "Génie civil", "Geomatics and information systems"],
+      gestion: ["AMOA", "IDF", "ASEDES", "Transportation and logistic engineering"]
+    };
+    const filieresDesc = {
+      "2IA": "Intelligence Artificielle (IA)",
+      "GD": "Génie des Données",
+      "BI&A": "Business Intelligence & Analytics",
+      "Data science": "Data Science",
+      "GL": "Génie Logiciel",
+      "Computer science": "Informatique",
+      "Data and software engineer": "Data & Software Engineer",
+      "Génie électrique": "Génie électrique",
+      "CSCMC": "Conception et Simulation des Circuits et Microcontrôleurs",
+      "Génie mécanique": "Génie mécanique",
+      "Génie industriel": "Génie industriel",
+      "Génie des procédés industriels": "Procédés industriels",
+      "AMOA": "Assistance à Maîtrise d’Ouvrage Agile",
+      "IDF": "Ingénierie des Données et de la Finance",
+      "ASEDES": "ASEDES (gestion des données, systèmes)",
+      "SMART": "SMART (ex : IoT, systèmes intelligents)",
+      "CLOUD": "Cloud Computing",
+      "Génie réseau et télécommunications": "Réseaux et télécommunications",
+      "Transportation and logistic engineering": "Génie des transports et logistique",
+      "Génie civil": "Génie civil",
+      "Geomatics and information systems": "Systèmes d'information géomatique",
+      "Materials science and engineering": "Science et génie des matériaux",
+      "Meteorology": "Météorologie",
+      "Hydraulic and water resources": "Hydraulique et ressources en eau",
+      "Génie minérale": "Génie minéral",
+      "Modélisation informatique (MIS)": "Modélisation informatique",
+      "Ingénierie topographique": "Topographie",
+      "Ingénieur généraliste": "Ingénieur généraliste"
+    };
+
+    function showResult() {
+      let answers = [
+        document.getElementById('q1').value,
+        document.getElementById('q2').value,
+        document.getElementById('q3').value,
+        document.getElementById('q4').value
+      ];
+      // Vérification
+      if (answers.includes("")) {
+        document.getElementById('result').style.display = "block";
+        document.getElementById('result').innerHTML = "Merci de répondre à <b>toutes</b> les questions.";
+        return;
+      }
+      let score = {};
+      answers.forEach(ans => {
+        (filieres[ans] || []).forEach(fil => {
+          score[fil] = (score[fil]||0)+1;
+        });
+      });
+      let max = 0, best = [];
+      for (let fil in score) {
+        if (score[fil] > max) {
+          max = score[fil];
+          best = [fil];
+        } else if (score[fil] === max) {
+          best.push(fil);
+        }
+      }
+      let resultDiv = document.getElementById('result');
+      if (best.length === 0) {
+        resultDiv.innerHTML = "Aucune filière ne correspond parfaitement à tes réponses.<br>Essaye de reformuler tes choix.";
+      } else {
+        resultDiv.innerHTML = "<h2>Ta filière idéale&nbsp;:</h2>" +
+          best.map(fil => `<b>${fil} :</b> ${filieresDesc[fil]}`).join("<br>") +
+          "<br><br><i>Ce choix est basé sur tes réponses concernant tes intérêts, ton niveau en programmation et ton secteur préféré.<br>N’hésite pas à explorer ces filières pour affiner ton orientation !</i>";
+      }
+      resultDiv.style.display = "block";
+    }
+  </script>
+</body>
+</html>
