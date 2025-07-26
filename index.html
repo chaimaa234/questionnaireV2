@@ -2,31 +2,31 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Questionnaire Orientation Filière</title>
+  <title>Questionnaire Orientation Filière - 20 Questions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; }
-    .container { max-width: 650px; margin: 40px auto; background: #fff; padding: 32px 28px 28px 28px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07);}
+    .container { max-width: 750px; margin: 40px auto; background: #fff; padding: 36px 28px 28px 28px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);}
     h1 { color: #34495e; margin-bottom: 12px; }
-    h2 { color: #2d7e47; margin-top: 36px;}
+    h2 { color: #27ae60; margin-top: 38px;}
     .question { margin-bottom: 22px; }
     label { font-weight: 600; color: #222; }
     select, button { margin-top: 7px; padding: 10px; font-size: 1em; border-radius: 6px; border: 1px solid #ccc;}
-    select { width: 100%; max-width: 350px;}
-    button { background: #27ae60; color: #fff; border: none; width: 100%; max-width: 350px; margin-top: 18px; font-weight: bold;}
+    select { width: 100%; max-width: 450px;}
+    button { background: #27ae60; color: #fff; border: none; width: 100%; max-width: 450px; margin-top: 18px; font-weight: bold;}
     button:hover { background: #219150;}
-    .result { background: #eafaf1; padding: 18px; border-radius: 8px; margin-top: 40px; font-size: 1.08em; }
+    .result { background: #eafaf1; padding: 22px; border-radius: 8px; margin-top: 40px; font-size: 1.08em; }
     .footer { margin-top: 40px; text-align: center; color: #888; font-size: 0.93em;}
-    @media (max-width: 700px) {
-      .container { padding: 18px; }
-      h1 { font-size: 1.55em; }
+    @media (max-width: 900px) {
+      .container { padding: 10px; }
+      h1 { font-size: 1.5em; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>🧭 Questionnaire d'Orientation Filière</h1>
-    <p>Réponds à 4 questions simples pour découvrir la filière la plus adaptée à ton profil&nbsp;!</p>
+    <h1>🧭 Questionnaire d'Orientation Filière – 20 Questions</h1>
+    <p>Réponds à ces 20 questions pour découvrir la filière la plus adaptée à ton profil !</p>
     <form id="quizForm">
       <div class="question">
         <label for="q1">1. Préfères-tu travailler avec :</label><br>
@@ -67,12 +67,148 @@
           <option value="gestion">Gestion/organisation</option>
         </select>
       </div>
+      <div class="question">
+        <label for="q5">5. Ton niveau en mathématiques :</label><br>
+        <select id="q5" required>
+          <option value="">-- Choisir --</option>
+          <option value="low">Faible</option>
+          <option value="medium">Moyen</option>
+          <option value="high">Élevé</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q6">6. Préfères-tu travailler sur le terrain, en laboratoire ou au bureau ?</label><br>
+        <select id="q6" required>
+          <option value="">-- Choisir --</option>
+          <option value="terrain">Terrain</option>
+          <option value="lab">Laboratoire</option>
+          <option value="office">Bureau</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q7">7. Es-tu attiré par la modélisation et la simulation ?</label><br>
+        <select id="q7" required>
+          <option value="">-- Choisir --</option>
+          <option value="no">Pas du tout</option>
+          <option value="some">Un peu</option>
+          <option value="yes">Beaucoup</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q8">8. L’innovation et la recherche t’intéressent-elles ?</label><br>
+        <select id="q8" required>
+          <option value="">-- Choisir --</option>
+          <option value="no">Non</option>
+          <option value="yes">Oui</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q9">9. Préfères-tu gérer des projets ou te concentrer sur la technique ?</label><br>
+        <select id="q9" required>
+          <option value="">-- Choisir --</option>
+          <option value="projet">Gestion de projet</option>
+          <option value="tech">Technique</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q10">10. Ton intérêt pour l’international :</label><br>
+        <select id="q10" required>
+          <option value="">-- Choisir --</option>
+          <option value="no">Faible</option>
+          <option value="medium">Moyen</option>
+          <option value="yes">Fort</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q11">11. Quelle importance accordes-tu à la communication dans ton travail ?</label><br>
+        <select id="q11" required>
+          <option value="">-- Choisir --</option>
+          <option value="low">Faible</option>
+          <option value="medium">Moyenne</option>
+          <option value="high">Élevée</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q12">12. As-tu un intérêt pour la sécurité informatique ?</label><br>
+        <select id="q12" required>
+          <option value="">-- Choisir --</option>
+          <option value="no">Non</option>
+          <option value="yes">Oui</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q13">13. Es-tu motivé par l’automatisation et la robotique ?</label><br>
+        <select id="q13" required>
+          <option value="">-- Choisir --</option>
+          <option value="no">Non</option>
+          <option value="yes">Oui</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q14">14. Préfères-tu travailler dans un environnement stable ou dynamique ?</label><br>
+        <select id="q14" required>
+          <option value="">-- Choisir --</option>
+          <option value="stable">Stable</option>
+          <option value="dynamic">Dynamique</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q15">15. Es-tu sensible à l’environnement et au développement durable ?</label><br>
+        <select id="q15" required>
+          <option value="">-- Choisir --</option>
+          <option value="no">Non</option>
+          <option value="yes">Oui</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q16">16. Quel est ton intérêt pour la finance et l’économie ?</label><br>
+        <select id="q16" required>
+          <option value="">-- Choisir --</option>
+          <option value="no">Faible</option>
+          <option value="medium">Moyen</option>
+          <option value="high">Élevé</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q17">17. Préfères-tu apprendre de façon autonome ou encadrée ?</label><br>
+        <select id="q17" required>
+          <option value="">-- Choisir --</option>
+          <option value="autonome">Autonome</option>
+          <option value="encadree">Encadrée</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q18">18. Es-tu attiré par la gestion des transports et de la logistique ?</label><br>
+        <select id="q18" required>
+          <option value="">-- Choisir --</option>
+          <option value="no">Non</option>
+          <option value="yes">Oui</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q19">19. Quelle est ton appétence pour les réseaux et télécommunications ?</label><br>
+        <select id="q19" required>
+          <option value="">-- Choisir --</option>
+          <option value="no">Faible</option>
+          <option value="medium">Moyenne</option>
+          <option value="high">Élevée</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q20">20. Es-tu intéressé par la science des matériaux ?</label><br>
+        <select id="q20" required>
+          <option value="">-- Choisir --</option>
+          <option value="no">Non</option>
+          <option value="yes">Oui</option>
+        </select>
+      </div>
       <button type="button" onclick="showResult()">Voir ma filière idéale</button>
     </form>
     <div id="result" class="result" style="display:none;"></div>
-    <div class="footer">Réalisé avec ❤️ pour l’orientation étudiante – <b>Chaimaa</b></div>
+    <div class="footer">Créé avec ❤️ pour l’orientation étudiante – <b>Chaimaa</b></div>
   </div>
   <script>
+    // Mapping des réponses vers les filières
     const filieres = {
       data: ["2IA", "GD", "BI&A", "Data science"],
       dev: ["GL", "Computer science", "Data and software engineer"],
@@ -86,10 +222,38 @@
       team: ["GL", "SMART", "CLOUD", "AMOA", "Génie industriel", "Data and software engineer"],
       solo: ["2IA", "GD", "BI&A", "Modélisation informatique (MIS)", "Génie civil", "Meteorology"],
       it: ["2IA", "GD", "GL", "SMART", "Computer science", "CLOUD", "Data science", "Data and software engineer"],
-      industry: ["Génie mécanique", "Génie industriel", "Génie électrique", "CSCMC", "Génie des procédés industriels"],
-      science: ["Materials science and engineering", "Meteorology", "Hydraulic and water resources", "Génie civil", "Geomatics and information systems"],
-      gestion: ["AMOA", "IDF", "ASEDES", "Transportation and logistic engineering"]
+      // Questions 5+
+      low: ["AMOA", "IDF", "ASEDES", "Ingénieur généraliste"],
+      medium: ["GD", "BI&A", "SMART", "Génie industriel", "Transportation and logistic engineering"],
+      high: ["2IA", "GL", "Computer science", "Data science", "Materials science and engineering", "Meteorology", "Génie mécanique", "Génie civil", "Modélisation informatique (MIS)"],
+      terrain: ["Génie civil", "Geomatics and information systems", "Ingénierie topographique"],
+      lab: ["CSCMC", "Materials science and engineering", "Meteorology", "Modélisation informatique (MIS)"],
+      office: ["GL", "GD", "BI&A", "AMOA", "IDF", "ASEDES", "Computer science", "Data and software engineer"],
+      some: ["Modélisation informatique (MIS)", "Materials science and engineering"],
+      yes: ["2IA", "GD", "SMART", "Génie mécanique", "Génie civil", "Materials science and engineering", "Meteorology", "CLOUD", "Génie industriel", "Data science", "Génie réseau et télécommunications", "Transportation and logistic engineering"],
+      no: ["AMOA", "IDF", "ASEDES", "Ingénieur généraliste"],
+      projet: ["AMOA", "IDF", "ASEDES", "Transportation and logistic engineering", "Génie industriel"],
+      tech: ["2IA", "GL", "Computer science", "Data science", "CSCMC", "Génie électrique", "SMART", "CLOUD", "Modélisation informatique (MIS)"],
+      medium: ["GD", "BI&A", "SMART", "Génie industriel", "Transportation and logistic engineering"],
+      high: ["2IA", "GL", "Computer science", "Data science", "Materials science and engineering", "Meteorology", "Génie mécanique", "Génie civil", "Modélisation informatique (MIS)", "Génie réseau et télécommunications"],
+      autonome: ["2IA", "GD", "BI&A", "Modélisation informatique (MIS)", "Génie civil", "Meteorology"],
+      encadree: ["GL", "SMART", "CLOUD", "AMOA", "Génie industriel", "Data and software engineer"],
+      // Questions spécifiques
+      stable: ["AMOA", "IDF", "ASEDES", "Ingénieur généraliste", "Génie civil"],
+      dynamic: ["2IA", "GL", "SMART", "CLOUD", "Génie industriel"],
     };
+
+    // Certaines questions demandent une réponse "oui"/"non" pour une filière précise :
+    const qExtra = [
+      {q:12, yes:["Computer science", "Data and software engineer", "CLOUD"], no:["Génie civil", "Ingénieur généraliste"]},
+      {q:13, yes:["SMART", "CLOUD", "Génie industriel", "Data and software engineer"], no:["AMOA", "IDF", "ASEDES"]},
+      {q:15, yes:["Génie civil", "Geomatics and information systems", "Hydraulic and water resources"], no:["CSCMC", "Génie industriel"]},
+      {q:16, high:["IDF"], medium:["ASEDES", "AMOA"], no:["Génie mécanique", "SMART"]},
+      {q:18, yes:["Transportation and logistic engineering"], no:["GL", "CSCMC"]},
+      {q:19, high:["Génie réseau et télécommunications", "CLOUD"], medium:["SMART", "Génie industriel"], no:["Génie civil", "Ingénieur généraliste"]},
+      {q:20, yes:["Materials science and engineering"], no:["AMOA", "IDF", "ASEDES"]}
+    ];
+
     const filieresDesc = {
       "2IA": "Intelligence Artificielle (IA)",
       "GD": "Génie des Données",
@@ -122,24 +286,21 @@
     };
 
     function showResult() {
-      let answers = [
-        document.getElementById('q1').value,
-        document.getElementById('q2').value,
-        document.getElementById('q3').value,
-        document.getElementById('q4').value
-      ];
-      // Vérification
-      if (answers.includes("")) {
-        document.getElementById('result').style.display = "block";
-        document.getElementById('result').innerHTML = "Merci de répondre à <b>toutes</b> les questions.";
-        return;
-      }
       let score = {};
-      answers.forEach(ans => {
-        (filieres[ans] || []).forEach(fil => {
-          score[fil] = (score[fil]||0)+1;
-        });
-      });
+      // Questions 1 à 20
+      for (let i = 1; i <= 20; i++) {
+        let value = document.getElementById('q'+i).value;
+        if (!value) {
+          document.getElementById('result').style.display = "block";
+          document.getElementById('result').innerHTML = "Merci de répondre à <b>toutes</b> les questions.";
+          return;
+        }
+        // Mapping général
+        if (filieres[value]) filieres[value].forEach(fil => { score[fil]=(score[fil]||0)+1; });
+        // Mapping spécifique
+        let extra = qExtra.find(q => q.q === i);
+        if (extra && extra[value]) extra[value].forEach(fil => { score[fil]=(score[fil]||0)+1; });
+      }
       let max = 0, best = [];
       for (let fil in score) {
         if (score[fil] > max) {
@@ -153,9 +314,9 @@
       if (best.length === 0) {
         resultDiv.innerHTML = "Aucune filière ne correspond parfaitement à tes réponses.<br>Essaye de reformuler tes choix.";
       } else {
-        resultDiv.innerHTML = "<h2>Ta filière idéale&nbsp;:</h2>" +
+        resultDiv.innerHTML = "<h2>Ta filière idéale :</h2>" +
           best.map(fil => `<b>${fil} :</b> ${filieresDesc[fil]}`).join("<br>") +
-          "<br><br><i>Ce choix est basé sur tes réponses concernant tes intérêts, ton niveau en programmation et ton secteur préféré.<br>N’hésite pas à explorer ces filières pour affiner ton orientation !</i>";
+          "<br><br><i>Ce choix est basé sur tes 20 réponses concernant tes intérêts, compétences et préférences.<br>N’hésite pas à explorer ces filières pour affiner ton orientation !</i>";
       }
       resultDiv.style.display = "block";
     }
